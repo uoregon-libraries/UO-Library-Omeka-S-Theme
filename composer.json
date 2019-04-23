@@ -1,5 +1,5 @@
 {
-    "name": "omeka-s-themes/default",
+    "name": "uoregon-libraries/UO-Library-Omeka-S-Theme",
     "type": "omeka-s-theme",
     "require": {
         "omeka/omeka-s": "*"

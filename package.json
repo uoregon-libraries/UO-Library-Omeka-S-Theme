@@ -1,14 +1,14 @@
 {
   "name": "default",
   "version": "1.0.0",
-  "description": "The default theme for Omeka S.",
+  "description": "The UO Library theme for Omeka S.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/omeka-s-themes/default.git"
+    "url": "https://github.com/uoregon-libraries/UO-Library-Omeka-S-Theme.git"
   },
   "keywords": [
     "omeka-s",
@@ -17,9 +17,9 @@
   "author": "RRCHNM",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/omeka-s-themes/default/issues"
+    "url": "https://github.com/uoregon-libraries/UO-Library-Omeka-S-Theme/issues"
   },
-  "homepage": "https://github.com/omeka-s-themes/default#readme",
+  "homepage": "https://github.com/uoregon-libraries/UO-Library-Omeka-S-Theme#readme",
   "devDependencies": {
     "autoprefixer": "^9.2.1",
     "gulp": "^4.0.0",
