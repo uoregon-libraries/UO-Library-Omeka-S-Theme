@@ -21,6 +21,11 @@ $logo = $this->themeSettingAssetUrl('logo');
 if ($logo):
     $title = '<img src="' . $this->escapeHtml($logo) . '">';
 endif;
+
+$footerCredit = $this->themeSetting('footer_credit');
+$footerLicense = $this->themeSetting('footer_license');
+$footerCitation = $this->themeSetting('footer_citation');
+$footerCols = !empty($footerCredit) + (!empty($footerLicense) || !empty($footerCitation));
 ?>
 <?php echo $this->doctype(); ?>
 <?php echo $this->htmlElement('html'); ?>
@@ -57,32 +62,28 @@ endif;
         </div>
         <footer>
             <div class="container">
-            <?php if ($footerContent = $this->themeSetting('footer_credit')): ?>
-                <section>
-                    <h2>Credits</h2>
-                    <div class="row">
-                        <?php echo $footerContent; ?>
-                    </div>
-                </section>
-            <?php else: ?>
-                <?php echo $this->translate('Powered by Omeka S'); ?>
-            <?php endif; ?>
-            <?php if ($footerContent = $this->themeSetting('footer_license')): ?>
-                <section>
-                    <h2>Licensing</h2>
-                    <div class="row">
-                        <?php echo $footerContent; ?>
-                    </div>
-                </section>
-            <?php endif; ?>
-            <?php if ($footerContent = $this->themeSetting('footer_citation')): ?>
-                <section>
-                    <h2>Citation</h2>
-                    <div class="row">
-                        <?php echo $footerContent; ?>
-                    </div>
-                </section>
-            <?php endif; ?>
+                <div class="row">
+                <?php if ($footerCredit): ?>
+                    <section class="col-md-<?php echo 12/$footerCols ?>">
+                        <h2>Credits</h2>
+                        <?php echo $footerCredit; ?>
+                    </section>
+                <?php else: ?>
+                    <?php echo $this->translate('Powered by Omeka S'); ?>
+                <?php endif; ?>
+                <?php if ($footerLicense || $footerCitation): ?>
+                    <section class="col-md-<?php echo 12/$footerCols ?>">
+                    <?php if ($footerLicense): ?>
+                        <h2>Licensing</h2>
+                        <?php echo $footerLicense; ?>
+                    <?php endif; ?>
+                    <?php if ($footerCitation): ?>
+                        <h2>Citation</h2>
+                        <?php echo $footerCitation; ?>
+                    <?php endif; ?>
+                    </section>
+                <?php endif; ?>
+                </div>
             </div>
         </footer>
     </body>
