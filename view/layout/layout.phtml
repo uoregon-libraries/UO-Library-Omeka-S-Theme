@@ -7,9 +7,13 @@ $this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(
 $this->headLink()->prependStylesheet($this->assetUrl('css/style.css'));
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700italic,700');
+$this->headLink()->prependStylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
 $this->headScript()->prependFile($this->assetUrl('js/default.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
+$this->headScript()->prependFile('https://code.jquery.com/jquery-3.3.1.slim.min.js');
+$this->headScript()->prependFile('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js');
+$this->headScript()->prependFile('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js');
 $this->trigger('view.layout');
 $title = $this->pageTitle($site->title());
 $userBar = $this->userBar();
@@ -52,11 +56,34 @@ endif;
             <?php echo $this->content; ?>
         </div>
         <footer>
-            <?php if ($footerContent = $this->themeSetting('footer')): ?>
-            <?php echo $footerContent; ?>
+            <div class="container">
+            <?php if ($footerContent = $this->themeSetting('footer_credit')): ?>
+                <section>
+                    <h2>Credits</h2>
+                    <div class="row">
+                        <?php echo $footerContent; ?>
+                    </div>
+                </section>
             <?php else: ?>
                 <?php echo $this->translate('Powered by Omeka S'); ?>
             <?php endif; ?>
+            <?php if ($footerContent = $this->themeSetting('footer_license')): ?>
+                <section>
+                    <h2>Licensing</h2>
+                    <div class="row">
+                        <?php echo $footerContent; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+            <?php if ($footerContent = $this->themeSetting('footer_citation')): ?>
+                <section>
+                    <h2>Citation</h2>
+                    <div class="row">
+                        <?php echo $footerContent; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+            </div>
         </footer>
     </body>
 </html>

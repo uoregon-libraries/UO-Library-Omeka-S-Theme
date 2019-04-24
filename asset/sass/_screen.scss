@@ -467,8 +467,15 @@ button.o-icon-search {
 /* @group ----- Footer ----- */
 
 footer {
-    @include container;
     padding: 0 gutter() $spacing-l;
+    background-color: #fff;
+    border-top: 1px solid $light;
+
+    & > * {
+        @include container;
+        padding: 0 gutter();
+        display: block;
+    }
 }
 
 /* @end */
@@ -723,7 +730,7 @@ footer {
         font-size: 1.25 * $base-font-size;
         margin-bottom: $spacing-s;
     }
-    
+
     .site-summary {
         margin: 0 0 0 $spacing-m;
         line-height: 20px;
