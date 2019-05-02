@@ -8,6 +8,7 @@ $this->headLink()->prependStylesheet($this->assetUrl('css/style.css'));
 $this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700italic,700');
 $this->headLink()->prependStylesheet('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+$this->headLink()->prependStylesheet('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
 $this->headScript()->prependFile($this->assetUrl('js/default.js'));
 $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
@@ -22,10 +23,17 @@ if ($logo):
     $title = '<img src="' . $this->escapeHtml($logo) . '">';
 endif;
 
-$footerCredit = $this->themeSetting('footer_credit');
+$footerLogos = $this->themeSetting('footer_logos');
+$footerSponsors = $this->themeSetting('footer_sponsors');
 $footerLicense = $this->themeSetting('footer_license');
 $footerCitation = $this->themeSetting('footer_citation');
-$footerCols = !empty($footerCredit) + (!empty($footerLicense) || !empty($footerCitation));
+$footerCols = (!empty($footerLicense) || !empty($footerCitation));
+$sponsersCols = !empty($footerSponsors) + !empty($footerLogos);
+$socials = $this->themeSetting('social_media');
+$socialsExceptions = [
+    'social_instagram',
+    'social_email',
+];
 ?>
 <?php echo $this->doctype(); ?>
 <?php echo $this->htmlElement('html'); ?>
@@ -61,28 +69,75 @@ $footerCols = !empty($footerCredit) + (!empty($footerLicense) || !empty($footerC
             <?php echo $this->content; ?>
         </div>
         <footer>
-            <div class="container">
-                <div class="row">
-                <?php if ($footerCredit): ?>
-                    <section class="col-md-<?php echo 12/$footerCols ?>">
-                        <h2>Credits</h2>
-                        <?php echo $footerCredit; ?>
-                    </section>
-                <?php else: ?>
-                    <?php echo $this->translate('Powered by Omeka S'); ?>
-                <?php endif; ?>
-                <?php if ($footerLicense || $footerCitation): ?>
-                    <section class="col-md-<?php echo 12/$footerCols ?>">
-                    <?php if ($footerLicense): ?>
-                        <h2>Licensing</h2>
-                        <?php echo $footerLicense; ?>
-                    <?php endif; ?>
+            <!-- Main Row - Ankle -->
+            <div id="ankle" class="pt-3 row">
+
+            <!-- Citation and License column -->
+            <?php if ($footerLicense || $footerCitation): ?>
+                <section id="license-citation-section" class="col-md-<?php echo 4/$footerCols ?>">
+                    <div id="license-citation-row" class="row">
                     <?php if ($footerCitation): ?>
-                        <h2>Citation</h2>
-                        <?php echo $footerCitation; ?>
+                        <div id="citation-col" class="col-12">
+                            <h2>Citation</h2>
+                            <?php echo $footerCitation; ?>
+                        </div>
                     <?php endif; ?>
-                    </section>
-                <?php endif; ?>
+                    <?php if ($footerLicense): ?>
+                        <div id="license-col" class="col-12 pt-3">
+                            <h2>Licensing</h2>
+                            <?php echo $footerLicense; ?>
+                        </div>
+                    <?php endif; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            <!-- Sponsors and Images column -->
+            <?php if ($footerSponsors || $footerLogos): ?>
+                <section id="logos-sponsors-section" class="col-md-8">
+                    <div id="logos-sponsers-row" class="row">
+                    <?php if ($footerLogos): ?>
+                        <div id="logos-col" class="pt-3 col-lg-<?php echo 12/$sponsersCols ?>">
+                            <?php echo $footerLogos; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($footerSponsors): ?>
+                        <div id="sponsors-col" class="col-lg-<?php echo 12/$sponsersCols ?>">
+                            <h2>Sponsors</h2>
+                            <?php echo $footerSponsors; ?>
+                        </div>
+                    <?php endif; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            </div>
+
+            <!-- Copyright and Social - Foot -->
+            <hr>
+            <div id="foot" class="row">
+                <div class="col-md-6 small">
+                    © 2019 COPYRIGHT. ALL RIGHTS RESERVED.
+                </div>
+                <div class="col-md-6 text-md-right">
+                <?php foreach ($socials as $social): ?>
+                    <?php if (in_array($social, $socialsExceptions)) continue; ?>
+                    <?php if ($link = $this->themeSetting($social)): ?>
+                    <a href="<?php echo $link ?>">
+                        <i class="fab fa-<?php echo str_replace('social_', '', $social) ?>-square fa-lg ml-2 mr-2"></i>
+                    </a>
+                    <?php endif ?>
+                <?php endforeach ?>
+                <?php if ($link = $this->themeSetting('social_instagram')): ?>
+                <a href="<?php echo $link ?>">
+                    <i class="fab fa-instagram fa-lg ml-2 mr-2"></i>
+                </a>
+                <?php endif ?>
+                <?php if ($link = $this->themeSetting('social_email')): ?>
+                <a href="mailto:<?php echo $link ?>">
+                    <i class="fas fa-envelope-square fa-lg ml-2 mr-2"></i>
+                </a>
+                <?php endif ?>
                 </div>
             </div>
         </footer>
