@@ -165,6 +165,7 @@ select {
 .field.required .field-meta:after {
     content: "\f069";
     font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     font-size: .75 * $base-font-size;
 }
 
@@ -194,6 +195,7 @@ header nav.closed ul {
 
 header nav:before {
     font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     content: "\f0c9";
     display: block;
     width: 1.25 * $spacing-l;
@@ -244,6 +246,7 @@ header nav ul {
 
     li > ul:before {
         font-family: "Font Awesome 5 Free";
+        font-weight: 900;
         content: "\f105";
         position: absolute;
         right: 0;
@@ -452,6 +455,7 @@ button.o-icon-search {
     &:before {
         content: "\f002";
         font-family: "Font Awesome 5 Free";
+        font-weight: 900;
         position: absolute;
         top: 0;
         left: 0;
@@ -467,8 +471,34 @@ button.o-icon-search {
 /* @group ----- Footer ----- */
 
 footer {
-    @include container;
     padding: 0 gutter() $spacing-l;
+    background-color: #fff;
+    border-top: 1px solid $light;
+
+    h2 {
+        font-size: 1rem;
+        line-height: 1rem;
+        font-weight: bold;
+    }
+    #ankle {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+    #logos-sponsors-section, #foot {
+        font-size: 1rem;
+    }
+
+    & > * {
+        @include container;
+        padding: 0 gutter();
+        display: block;
+    }
+
+    @include md{
+        #license-citation-section {
+            border-right: 2px solid #dedede;
+        }
+    }
 }
 
 /* @end */
@@ -723,7 +753,7 @@ footer {
         font-size: 1.25 * $base-font-size;
         margin-bottom: $spacing-s;
     }
-    
+
     .site-summary {
         margin: 0 0 0 $spacing-m;
         line-height: 20px;
