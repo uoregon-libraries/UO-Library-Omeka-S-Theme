@@ -425,17 +425,6 @@ button.o-icon-search {
     display: none;
 }
 
-#search {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border-bottom: 1px solid $light;
-    border-top: 1px solid $light;
-    padding: $spacing-s gutter();
-}
-
 #search form {
     display: flex;
     flex-wrap: nowrap;

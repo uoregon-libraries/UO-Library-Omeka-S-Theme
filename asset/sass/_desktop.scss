@@ -187,12 +187,6 @@ header nav > ul > li > ul > li > ul > li a {
     }
 }
 
-#search {
-    left: 75%;
-    border-left: 1px solid $light;
-    padding: $spacing-s;
-}
-
 #search form input[type="text"],
 #search form button[type="submit"] {
     height: $base-line-height;

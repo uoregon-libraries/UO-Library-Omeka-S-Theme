@@ -49,13 +49,17 @@ $socialsExceptions = [
     <?php echo $this->htmlElement('body'); ?>
         <?php echo $userBar; ?>
         <header>
-            <?php if ($this->themeSetting('logo')): ?>
-            <a href="<?php echo $site->url(); ?>" class="site-title"><img src="<?php echo $this->themeSettingAssetUrl('logo'); ?>" title="Logo"></a>
-            <?php else: ?>
-            <a href="<?php echo $site->url(); ?>" class="site-title"><?php echo $this->pageTitle($site->title()); ?></a>
-            <?php endif; ?>
-            <div id="search">
-                <?php echo $this->partial('common/search-form'); ?>
+            <div class="row">
+                <div class="col-md-8">
+                <?php if ($this->themeSetting('logo')): ?>
+                <a href="<?php echo $site->url(); ?>" class="site-title"><img src="<?php echo $this->themeSettingAssetUrl('logo'); ?>" title="Logo"></a>
+                <?php else: ?>
+                <a href="<?php echo $site->url(); ?>" class="site-title"><?php echo $this->pageTitle($site->title()); ?></a>
+                <?php endif; ?>
+                </div>
+                <div id="search" class="col-md-4">
+                    <?php echo $this->partial('common/search-form'); ?>
+                </div>
             </div>
 
             <nav>
