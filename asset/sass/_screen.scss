@@ -391,6 +391,19 @@ nav.pagination {
 
 /* @group ----- Header ----- */
 
+.skip {
+    position: absolute;
+    left: -999em;
+    padding: 0;
+}
+a.skip:active,  a.skip:focus {
+    left: 0em;
+    top: 0em;
+    border: 3px #3399cc solid;
+    background-color: #fff;
+    z-index: 999;
+}
+
 .site-title h1 {
     font-size: 1.25 * $base-font-size;
     line-height: $base-line-height;
