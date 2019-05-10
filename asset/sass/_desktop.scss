@@ -108,7 +108,8 @@ header nav ul.navigation {
         z-index: 1;
     }
 
-    & > li:hover > ul {
+    & > li:hover > ul,
+    & > li > ul.open {
         @include container;
         padding: $spacing-m (2 * gutter());
         left: 0;
@@ -133,7 +134,7 @@ header nav ul.navigation {
         width: 25%;
         font-size: .75 * $base-font-size;
         font-weight: bold;
-        padding-bottom: $spacing-l;
+        // padding-bottom: $spacing-l;
     }
 
     & > li > ul > li ul {

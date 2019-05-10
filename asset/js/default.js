@@ -27,6 +27,22 @@
             $(this).toggleClass('open').toggleClass('closed');
         });
 
+        // Add nav focus pop-overs similar to hover pop-overs
+        $('header nav ul.navigation>li>a').focus(function() {
+            var innerList = $(this).siblings('ul');
+            innerList.addClass('open');
+        }).blur(function () {
+            var innerList = $(this).siblings('ul');
+            innerList.removeClass('open');
+        });
+        $('header nav ul.navigation>li>ul>li a').focus(function() {
+            var outerList = $(this).parents('ul:nth-last-child(1)');
+            outerList.addClass('open');
+        }).blur(function () {
+            var outerList = $(this).parents('ul:nth-last-child(1)');
+            outerList.removeClass('open');
+        })
+
         // Maintain iframe aspect ratios
         $(window).on('load resize', framerateCallback(fixIframeAspect));
         fixIframeAspect();
