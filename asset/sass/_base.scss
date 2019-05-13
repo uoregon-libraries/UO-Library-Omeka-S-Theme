@@ -28,6 +28,6 @@ $spacing-l:                             $base-line-height;
 
 @mixin container {
     max-width: 1700px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }

@@ -198,16 +198,16 @@ header nav:before {
     font-weight: 900;
     content: "\f0c9";
     display: block;
-    width: 1.25 * $spacing-l;
-    height: 1.25 * $spacing-l;
+    width: 1.5 * $spacing-l;
+    height: 1.5 * $spacing-l;
     border: 1px solid $light;
     text-align: center;
     border-radius: 2px;
     position: absolute;
     right: gutter();
-    top: -(1.75 * $spacing-l);
+    top: -(2 * $spacing-l);
     cursor: pointer;
-    line-height: 1.25 * $base-line-height;
+    line-height: 1.5 * $base-line-height;
 }
 
 header nav.open:before {

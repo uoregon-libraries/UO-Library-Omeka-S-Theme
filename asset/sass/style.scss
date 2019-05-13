@@ -8,6 +8,6 @@
     @import "screen";
 }
 
-@media screen and (min-width:800px) {
+@media screen and (min-width:$screen-md-min) {
     @import "desktop";
 }
