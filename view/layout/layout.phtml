@@ -27,6 +27,7 @@ $footerLogos = $this->themeSetting('footer_logos');
 $footerSponsors = $this->themeSetting('footer_sponsors');
 $footerLicense = $this->themeSetting('footer_license');
 $footerCitation = $this->themeSetting('footer_citation');
+$footerCopyright = $this->themeSetting('footer_copyright');
 $footerCols = (!empty($footerLicense) || !empty($footerCitation));
 $sponsersCols = !empty($footerSponsors) + !empty($footerLogos);
 $socials = $this->themeSetting('social_media');
@@ -117,7 +118,7 @@ $socialsExceptions = [
             <hr>
             <div id="foot" class="row">
                 <div class="col-md-6 small">
-                    © 2019 COPYRIGHT. ALL RIGHTS RESERVED.
+                    <?php echo $footerCopyright; ?>
                 </div>
                 <div class="col-md-6 text-md-right">
                 <?php foreach ($socials as $social): ?>
