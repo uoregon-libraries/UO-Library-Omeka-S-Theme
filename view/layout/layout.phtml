@@ -51,14 +51,14 @@ $socialsExceptions = [
         <header>
             <a class="skip" href="#content">skip to content</a>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                 <?php if ($this->themeSetting('logo')): ?>
                 <a href="<?php echo $site->url(); ?>" class="site-title"><img src="<?php echo $this->themeSettingAssetUrl('logo'); ?>" title="Logo"></a>
                 <?php else: ?>
                 <a href="<?php echo $site->url(); ?>" class="site-title"><?php echo $this->pageTitle($site->title()); ?></a>
                 <?php endif; ?>
                 </div>
-                <div id="search" class="col-md-4 col-sm-11 mt-2 mt-md-0">
+                <div id="search" class="col-md-3 col-11 mt-2 mt-md-0">
                     <?php echo $this->partial('common/search-form'); ?>
                 </div>
             </div>
