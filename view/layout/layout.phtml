@@ -49,13 +49,18 @@ $socialsExceptions = [
     <?php echo $this->htmlElement('body'); ?>
         <?php echo $userBar; ?>
         <header>
-            <?php if ($this->themeSetting('logo')): ?>
-            <a href="<?php echo $site->url(); ?>" class="site-title"><img src="<?php echo $this->themeSettingAssetUrl('logo'); ?>" title="Logo"></a>
-            <?php else: ?>
-            <a href="<?php echo $site->url(); ?>" class="site-title"><?php echo $this->pageTitle($site->title()); ?></a>
-            <?php endif; ?>
-            <div id="search">
-                <?php echo $this->partial('common/search-form'); ?>
+            <a class="skip" href="#content">skip to content</a>
+            <div class="row">
+                <div class="col-md-9">
+                <?php if ($this->themeSetting('logo')): ?>
+                <a href="<?php echo $site->url(); ?>" class="site-title"><img src="<?php echo $this->themeSettingAssetUrl('logo'); ?>" title="Logo"></a>
+                <?php else: ?>
+                <a href="<?php echo $site->url(); ?>" class="site-title"><?php echo $this->pageTitle($site->title()); ?></a>
+                <?php endif; ?>
+                </div>
+                <div id="search" class="col-md-3 col-11 mt-2 mt-md-0">
+                    <?php echo $this->partial('common/search-form'); ?>
+                </div>
             </div>
 
             <nav>
@@ -125,18 +130,24 @@ $socialsExceptions = [
                     <?php if (in_array($social, $socialsExceptions)) continue; ?>
                     <?php if ($link = $this->themeSetting($social)): ?>
                     <a href="<?php echo $link ?>">
-                        <i class="fab fa-<?php echo str_replace('social_', '', $social) ?>-square fa-lg ml-2 mr-2"></i>
+                        <i class="fab fa-<?php echo str_replace('social_', '', $social) ?>-square fa-lg ml-2 mr-2">
+                            <span class="visuallyhidden"><?php echo str_replace('social_', '', $social) ?></span>
+                        </i>
                     </a>
                     <?php endif ?>
                 <?php endforeach ?>
                 <?php if ($link = $this->themeSetting('social_instagram')): ?>
                 <a href="<?php echo $link ?>">
-                    <i class="fab fa-instagram fa-lg ml-2 mr-2"></i>
+                    <i class="fab fa-instagram fa-lg ml-2 mr-2">
+                        <span class="visuallyhidden">instagram</span>
+                    </i>
                 </a>
                 <?php endif ?>
                 <?php if ($link = $this->themeSetting('social_email')): ?>
                 <a href="mailto:<?php echo $link ?>">
-                    <i class="fas fa-envelope-square fa-lg ml-2 mr-2"></i>
+                    <i class="fas fa-envelope-square fa-lg ml-2 mr-2">
+                        <span class="visuallyhidden">email</span>
+                    </i>
                 </a>
                 <?php endif ?>
                 </div>

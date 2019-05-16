@@ -18,7 +18,7 @@ body {
 }
 
 a:link {
-    text-decoration: none;
+    text-decoration: underline;
     color: #000;
 }
 
@@ -53,6 +53,17 @@ h4 {
 img {
     max-width: 100%;
     height: auto;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /* @group ----- Forms ----- */
@@ -198,16 +209,16 @@ header nav:before {
     font-weight: 900;
     content: "\f0c9";
     display: block;
-    width: 1.25 * $spacing-l;
-    height: 1.25 * $spacing-l;
+    width: 1.5 * $spacing-l;
+    height: 1.5 * $spacing-l;
     border: 1px solid $light;
     text-align: center;
     border-radius: 2px;
     position: absolute;
     right: gutter();
-    top: -(1.75 * $spacing-l);
+    top: -(2 * $spacing-l);
     cursor: pointer;
-    line-height: 1.25 * $base-line-height;
+    line-height: 1.5 * $base-line-height;
 }
 
 header nav.open:before {
@@ -391,6 +402,19 @@ nav.pagination {
 
 /* @group ----- Header ----- */
 
+.skip {
+    position: absolute;
+    left: -999em;
+    padding: 0;
+}
+a.skip:active,  a.skip:focus {
+    left: 0em;
+    top: 0em;
+    border: 3px #3399cc solid;
+    background-color: #fff;
+    z-index: 999;
+}
+
 .site-title h1 {
     font-size: 1.25 * $base-font-size;
     line-height: $base-line-height;
@@ -423,17 +447,6 @@ header {
 
 button.o-icon-search {
     display: none;
-}
-
-#search {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border-bottom: 1px solid $light;
-    border-top: 1px solid $light;
-    padding: $spacing-s gutter();
 }
 
 #search form {
