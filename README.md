@@ -3,7 +3,11 @@ A theme for Omeka-S used by UO Libraries, based on the default theme.
 
 # Setup
 
-## NPM
+## Requirements
+This theme requires the use of the [Universal Viewer module](https://github.com/Daniel-KM/Omeka-S-module-UniversalViewer)
+
+## Development
+### NPM
 CSS development uses NPM and Gulp to compile Sass. A full explanation can be found here: https://omeka.org/s/docs/developer/key_concepts/working_with_Sass_and_CSS/.
 
 The short version is:
@@ -14,7 +18,7 @@ The short version is:
 
 As you change .scss files in /asset/sass Gulp will recompile the .css files in /asset/css. This means .css files should not be edited directly.
 
-## Views
+### Views
 Developing views follows a typical templating engine approach. More details can be found here: https://omeka.org/s/docs/developer/themes/modifying_themes/
 
 Upstream templates are here: https://github.com/omeka/omeka-s/tree/develop/application/view
