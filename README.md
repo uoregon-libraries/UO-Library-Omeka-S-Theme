@@ -4,7 +4,8 @@ A theme for Omeka-S used by UO Libraries, based on the default theme.
 # Setup
 
 ## Requirements
-This theme requires the use of the [Universal Viewer module](https://github.com/Daniel-KM/Omeka-S-module-UniversalViewer)
+This theme no longer requires, but heavily encourages, the use of the [Universal Viewer module](https://github.com/Daniel-KM/Omeka-S-module-UniversalViewer) or [Mirador](https://github.com/Daniel-KM/Omeka-S-module-Mirador).
+In order for UV or Mirador to replace the default item viewer, the [Blocks Disposition](https://github.com/Daniel-KM/Omeka-S-module-BlocksDisposition) module must be installed and configured to not show either viewer.
 
 ## Development
 ### NPM
