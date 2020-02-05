@@ -19,15 +19,13 @@ $viewer = $this->themeSetting('viewer', 'default');
     ?>
     </div>
 <?php elseif ($itemMedia): ?>
-    <?php
-    switch($viewer):
-        case 'mirador':
-            echo $this->mirador($item);
-            break;
-        case 'universal':
-            echo $this->universalViewer($item);
-            break;
-    ?>
+<?php switch($viewer): ?>
+<?php case 'mirador': ?>
+    <?php echo $this->mirador($item); ?>
+<?php break; ?>
+<?php case 'universal': ?>
+    <?php echo $this->universalViewer($item); ?>
+<?php endswitch ?>
 <?php endif; ?>
 <?php echo $item->displayValues(); ?>
 <div class="property">
