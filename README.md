@@ -2,6 +2,9 @@
 
 A theme for Omeka-S used by UO Libraries, based on the default theme.
 
+Devs/admins: Note that dependabot alerts have been disabled for this repository
+because we keep getting flagged for dependencies we haven't had in over a year.
+
 # Setup
 
 ## Requirements
